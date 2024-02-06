@@ -1,52 +1,46 @@
-// Função para exibir o modal com informações do produto
-function showModal(originalPrice, productName) {
-    // Obter elementos do DOM pelo ID
-    const modal = document.getElementById('myModal');
-    const discountMessage = document.getElementById('discountMessage');
-    const discountSelect = document.getElementById('discountSelect');
-    const finalPrice = document.getElementById('finalPrice');
+// Função para exibir o card de desconto promocional e atualizar seu conteúdo com base no produto selecionado
+function showModal(price, productName) {
+    var modal = document.getElementById("myModal");
+    var discountMessage = document.getElementById("discountMessage");
+    var finalPrice = document.getElementById("finalPrice");
+    
+    // Exibe o modal
+    modal.style.display = "block";
+    
+    // Atualiza o conteúdo do card de desconto promocional
+    discountMessage.innerText = "Você selecionou o produto: " + productName;
+    
+    // Define o preço original no campo de preço final
+    finalPrice.innerText = "Preço Final: R$ " + price.toFixed(2);
 
-    // Atualizar mensagem do modal com o nome do produto
-    discountMessage.textContent = `Você pode aplicar um desconto no produto ${productName}.`;
-
-    // Reiniciar o select para a opção padrão (Sem desconto)
-    discountSelect.value = '0';
-
-    // Exibir o modal
-    modal.style.display = 'block';
-
-    // Atualizar preço final ao alterar o desconto
-    discountSelect.addEventListener('change', function () {
-        updateFinalPrice(originalPrice, parseInt(discountSelect.value));
+    // Define o valor do desconto inicialmente como 0
+    var discount = 0;
+    
+    // Event listener para alterações no select de desconto
+    var discountSelect = document.getElementById("discountSelect");
+    discountSelect.addEventListener("change", function() {
+        discount = parseInt(discountSelect.value); // Obtém o valor do desconto selecionado
+        
+        // Calcula o preço final com o desconto aplicado
+        var discountedPrice = price - (price * discount) / 100;
+        
+        // Atualiza o preço final exibido
+        finalPrice.innerText = "Preço Final: R$ " + discountedPrice.toFixed(2);
     });
-
-    // Atualizar preço final ao abrir o modal
-    updateFinalPrice(originalPrice, parseInt(discountSelect.value));
 }
 
 // Função para fechar o modal
 function closeModal() {
-    const modal = document.getElementById('myModal');
-    modal.style.display = 'none';
-}
-
-// Função para atualizar o preço final com base no desconto escolhido
-function updateFinalPrice(originalPrice, discount) {
-    const finalPrice = document.getElementById('finalPrice');
-    const discountedPrice = originalPrice - (originalPrice * discount) / 100;
-    finalPrice.textContent = `Preço Final: R$ ${discountedPrice.toFixed(2)}`;
+    var modal = document.getElementById("myModal");
+    
+    // Fecha a janela modal
+    modal.style.display = "none";
 }
 
 // Função para aplicar o desconto e fechar o modal
 function applyDiscount() {
-    const modal = document.getElementById('myModal');
-    modal.style.display = 'none';
+    var modal = document.getElementById("myModal");
+    
+    // Fecha a janela modal
+    modal.style.display = "none";
 }
-
-// Fechar o modal se clicar fora dele
-window.onclick = function (event) {
-    const modal = document.getElementById('myModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-};

@@ -12,44 +12,63 @@
 
     <!-- Header -->
     <header>
-        <h1>Cursos</h1>
-        <h1>Técnicos</h1>
+        <h1>Cursos Técnicos Disponíveis</h1>
     </header>
-
-    <section class="benefits-section">
-        <h2>Conheça nossos benefícios:</h2>
-        <p>Cartão Ouro com 15% de desconto nas compras à vista no débito.</p>
-        <p>Cartão Prata com 10% de desconto nas compras à vista no débito.</p>
-        <p>Cartão Bronze com 5% de desconto nas compras à vista no débito.</p>
-    </section>
 
     <!-- Main Section -->
     <main>
-        <!-- Grid de Benefícios -->
-        <div class="product-card" onclick="showModal(1000, 'Mesa Jantar')">
-            <img class="product-image" src="imagens/produto1.jpg" alt="Mesa Jantar">
-            <h3>Curso de Empilhadeira</h3>
+        <!-- Grid de Produtos -->
+        <div class="product-card" onclick="showModal(180, 'Curso de Empilhadeira')">
+            <img class="product-image" src="imagens/produto1.jpg" alt="Curso de Empilhadeira">
+            <h4>Curso de Empilhadeira</h4>
             <p>R$ 180,00</p>
         </div>
 
-        <div class="product-card" onclick="showModal(1500, 'Poltronas')">
-            <img class="product-image" src="imagens/produto2.jpg" alt="Poltronas">
-            <h3>Curso de Mecatrônica</h3>
+        <div class="product-card" onclick="showModal(1150, 'Curso de Mecatrônica')">
+            <img class="product-image" src="imagens/produto2.jpg" alt="Curso de Mecatrônica">
+            <h4>Curso de Mecatrônica</h4>
             <p>R$ 1.150,00</p>
         </div>
 
-        <div class="product-card" onclick="showModal(200, 'Mesa central')">
-            <img class="product-image" src="imagens/produto3.jpg" alt="Mesa central">
-            <h3>Curso de Culinária</h3>
+        <div class="product-card" onclick="showModal(850, 'Curso de Culinária')">
+            <img class="product-image" src="imagens/produto3.jpg" alt="Curso de Culinária">
+            <h4>Curso de Culinária</h4>
             <p>R$ 850,00</p>
         </div>
 
-        <div class="product-card" onclick="showModal(250, 'Cadeira')">
-            <img class="product-image" src="imagens/produto4.jpg" alt="Cadeira">
-            <h3>Curso de Informática</h3>
+        <div class="product-card" onclick="showModal(250, 'Curso de Informática')">
+            <img class="product-image" src="imagens/produto4.jpg" alt="Curso de Informática">
+            <h4>Curso de Informática</h4>
             <p>R$ 250,00</p>
         </div>
     </main>
+
+        <!-- Card de Desconto Promocional (Modal) -->
+    <div class="discount-card" id="myModal">
+        <div class="discount-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Desconto Promocional</h2>
+            <p id="discountMessage">Escolha um produto para ver o desconto.</p>
+                <select id="discountSelect">
+                    <option value="0">Sem desconto</option>
+                    <option value="10">Desconto de 10%</option>
+                    <option value="25">Desconto de 25%</option>
+                    <option value="50">Desconto de 50%</option>
+                </select>
+            <p id="finalPrice"></p>
+        </div>
+    </div>
+
+
+        <!-- Card de Benefícios -->
+    <div class="benefits-card" id="benefits">
+        <div class="benefits-content">
+            <h2>Conheça nossos benefícios:</h2>
+            <p>Cartão Bronze com 10% de desconto nas compras à vista no débito.</p>
+            <p>Cartão Prata com 25% de desconto nas compras à vista no débito.</p>
+            <p>Cartão Ouro com 50% de desconto nas compras à vista no débito.</p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -80,26 +99,11 @@
             </div>
         </div>
 
-        <p>&copy; 2023 Portal de Vendas</p>
+        <p>&copy; 2024 Cursos Técnicos</p>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal" id="myModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Desconto Promocional</h2>
-            <p id="discountMessage">Escolha um produto para ver o desconto.</p>
-            <select id="discountSelect">
-                <option value="0">Sem desconto</option>
-                <option value="5">Desconto de 5%</option>
-                <option value="10">Desconto de 10%</option>
-                <option value="15">Desconto de 15%</option>
-            </select>
-            <p id="finalPrice"></p>
-        </div>
-    </div>
+<script src="script.js"></script>
 
-    <script src="script.js"></script>
 </body>
 
 </html>

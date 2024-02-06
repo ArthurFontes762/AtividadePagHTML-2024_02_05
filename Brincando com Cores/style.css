@@ -4,32 +4,18 @@ body {
     padding: 0;
     background-color: #5FB9E4;
     background-image: url('imagens/cabecalho.jpg');
-    /* Substitua pelo caminho correto da sua imagem */
-    background-size: 125%;
+    background-size: 100% auto; /* Ajusta a imagem para cobrir toda a largura e altura da tela */
     background-repeat: no-repeat;
-    background-position: top center;
+    background-position: top;
+    color: whitesmoke;
 }
+
 
 header {
-    color: whitesmoke;
-    text-align: top left;
-    -webkit-text-stroke-width: 1px;
-    /* largura da borda */
-    -webkit-text-stroke-color: #000;
-    /* cor da borda */
-    text-size-adjust: 10px;
-    padding: 2em 0;
-    zoom: 3;
-}
-
-/* Benefícios Section */
-.benefits-section {
-    color: whitesmoke;
-    border-bottom: 3px solid #ddd;
-    padding: 5px;
     text-align: center;
-    background-color: #2C46A7;
-    font-size: small;
+    padding: 2em 0;/* Estilo de borda no texto do cabeçalho */
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #000;
 }
 
 main {
@@ -40,92 +26,98 @@ main {
 }
 
 .product-image {
-    max-width: 100%;
-    /* Ajuste conforme necessário */
-    max-height: 100px;
-    /* Ajuste conforme necessário */
-    height: auto;
+    width: 70%;
+    height: 55%;
+    margin-bottom: 1px;
+    border-radius: 5px;
 }
 
 .product-card {
-    color: whitesmoke;
-    width: 200px;
-    margin: 20px;
+    max-width: 210px;
+    margin: 5px;
     padding: 10px;
     border: 1px solid #2C46A7;
     text-align: center;
     cursor: pointer;
     background-color: #2C46A7;
+    margin-left: 20px;
+    border-radius: 15px;
 }
 
-.product-card:hover {}
+.benefits-card {
+    background-color: #2C46A7;
+    background-position: center;
+    color: white;
+    width: 48%;
+    height: 20%;
+    padding: 15px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 5px;
+    border-radius: 25px;
+}
+
+.benefits-content {
+    text-align: center;
+}
+
+/* Outros estilos */
+
+/* Estilos para o card de desconto promocional */
+.discount-card {
+    background-color: #2C46A7;
+    background-position: center;
+    width: 50%;
+    height: 50%;
+    color: white;
+    margin-left: 300px;
+    margin-bottom: 25px;
+    padding: 5px;
+    border-radius: 25px;
+    display: none; /* Escondido por padrão até que um produto seja selecionado */
+}
+
+.discount-content {
+    text-align: center;
+}
 
 footer {
     background-color: #2C46A7;
+    width: 50px cover;
+    height: 50px cover;
     color: white;
     text-align: center;
     padding: 1em 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    margin-top: 25px;
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .footer-section {
-    margin-bottom: 10px;
     text-align: center;
 }
 
 .footer-section-inner {
-    max-width: 140px;
+    max-width: 200px;
     margin: 0 auto;
-    text-align: left
+    text-align: left;
 }
 
 /* Estilo para dispositivos menores */
-@media screen and (max-width: 600px) {
-    .footer-section {
-        width: 100%;
+@media screen and (max-width: 800px) {
+    .product-card {
+        width: calc(50% - 20px);
     }
 }
 
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: #f5f3f3;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
+@media screen and (max-width: 600px) {
+    .product-card {
+        width: calc(100% - 20px);
+    }
 }
